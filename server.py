@@ -22,10 +22,10 @@ def post():
 
    url_receive = request.form['url_give']
    comment_receive = request.form['comment_give']
-   name_receive = request.form['name_give']
+   # name_receive = request.form['name_give']
 
 
-   article = {'num':articles_num,'url':url_receive,'comment':comment_receive,'name':name_receive}
+   article = {'num':articles_num,'url':url_receive,'comment':comment_receive}
    art = {}
    articles_num = articles_num + 1
 
