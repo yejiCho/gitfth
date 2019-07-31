@@ -1,0 +1,223 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>나홀로 링크 메모장</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- JS -->
+<!--  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+<!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
+<!--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!--  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+  <style>
+
+
+// Style 시트 내 추가
+
+   div.jumbotron {
+    width: 900px;
+    margin: auto;
+  }
+
+  div.card-columns{
+    width: 900px;
+    margin: 10px auto 0 auto;
+  }
+
+  div.form-post {
+   max-width: 500px;
+   padding: 2rem;
+   margin: 2rem auto;
+   border-color: #e9ecef;
+   border-radius: 0.3rem;
+   border: solid;
+ }
+
+ .comment {
+   color: blue;
+   font-weight: bold;
+ }
+
+ #posting-box {
+	display: none;
+  }
+
+</style>
+</head>
+<body>
+  <div class="jumbotron">
+    <h1 class="display-4">나홀로 링크 메모장</h1>
+    <p class="lead">글을 읽고 난 뒤 들었던 내 생각들. 단상. 나는 무엇을 읽고, 무엇을 생각했는가?</p>
+    <hr class="my-4">
+    <p class="lead">
+      <button id ="btn-posting-box" onclick="openclose()" type="button" class="btn btn-primary">포스팅 박스 열기</button>
+    </p>
+  </div>
+
+  <div id="posting-box" class="form-post">
+  <form>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">아티클 URL</label>
+      <input id="posting-url1" class="form-control" placeholder="">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">간단 코멘트</label>
+      <input id="posting-comment1" class="form-control" placeholder="">
+    </div>
+    <button onclick="posting()" type="button" class="btn btn-primary">기사저장</button>
+  </form>
+</div>
+<div id="posting-box2" class="form-post">
+  <form>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">아티클 URL</label>
+      <input id="posting-url" class="form-control" placeholder="">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">간단 코멘트</label>
+      <input id="posting-comment" class="form-control" placeholder="">
+    </div>
+    <button onclick="posting()" type="button" class="btn btn-primary">기사저장</button>
+
+  </form>
+</div>
+  <div class="card-columns card-post" id="cards-box">
+    <div class="card">
+      <img class="card-img-top" src="https://www.fodors.com/wp-content/uploads/2018/10/4_UltimateRome_PiazzaNavona-975x650.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">예를 들면 이렇게 카드가 나옵니다!!</h5>
+        <p class="card-text">여기에 기사 내용이 들어가겠죠</p>
+        <p class="card-text comment">여기엔 코멘트가 들어갑니다</p>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="https://www.fodors.com/wp-content/uploads/2018/10/4_UltimateRome_PiazzaNavona-975x650.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">예를 들면 이렇게 카드가 나옵니다!!</h5>
+        <p class="card-text">여기에 기사 내용이 들어가겠죠</p>
+        <p class="card-text comment">여기엔 코멘트가 들어갑니다</p>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="https://www.fodors.com/wp-content/uploads/2018/10/4_UltimateRome_PiazzaNavona-975x650.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">예를 들면 이렇게 카드가 나옵니다!!</h5>
+        <p class="card-text">여기에 기사 내용이 들어가겠죠</p>
+        <p class="card-text comment">여기엔 코멘트가 들어갑니다</p>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="https://www.fodors.com/wp-content/uploads/2018/10/4_UltimateRome_PiazzaNavona-975x650.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">예를 들면 이렇게 카드가 나옵니다!!</h5>
+        <p class="card-text">여기에 기사 내용이 들어가겠죠</p>
+        <p class="card-text comment">여기엔 코멘트가 들어갑니다</p>
+      </div>
+    </div>
+
+  </div>
+
+
+<script>
+
+<!--  $.ajax({-->
+<!--	type: "GET",-->
+<!--	url: "http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99",-->
+<!--	data: {},-->
+<!--	success: function(result){-->
+<!--		// 값 중 도봉구의 미세먼지 값만 가져오기 (아까 했던 그것!)-->
+<!--		let dobong_mise = result["RealtimeCityAir"]["row"][11]['IDEX_MVL'];-->
+<!--		// 버튼 텍스트에 바꿔보자-->
+<!--		$('#btn-posting-box').text(dobong_mise);-->
+<!--  }-->
+<!--})-->
+function openclose() {
+	// 여기에 Jquery를 이용해 코드를 짤 예정
+}
+
+function openclose() {
+		// id 값 posting-box의 display 값이 block 이면
+    if ( $('#posting-box').css('display') == 'block' ) {
+			// posting-box를 가리고
+      $('#posting-box').hide();
+    } else {
+			// 아니면 posting-box를 펴라
+      $('#posting-box').show();
+    }
+  }
+
+function posting() {
+    // 읽기
+    let url = $('#posting-url').val();
+    let comment = $('#posting-comment').val();
+
+    // 우리가 크롬 콘솔창에서 썼던 그 코드!
+    $.ajax({
+      type: "POST", // POST 방식으로 요청하겠다.
+      url: "/post", // /post라는 url에 요청하겠다.
+      data: { url_give: url, comment_give: comment}, // 데이터를 주는 방법
+      success: function(response){ // 성공하면
+        if (response['result'] == 'success') {
+          	window.location.reload();
+
+        } else {
+          alert('서버 오류!')
+        }
+      }
+    })
+  }
+
+  window.onload=function(){
+        get_posting();
+    }
+
+function get_posting() {
+    $.ajax({
+      type: "GET",
+      url: "/post",
+      data: {},
+      success: function(response){
+        let cards = response['articles'];
+        for (let i = 0 ; i < cards.length; i++) {
+          let url = cards[i]['url'];
+          let comment = cards[i]['comment'];
+
+          make_card(url,comment);
+        }
+      }
+    })
+  }
+
+function make_card(url,comment) {
+	// url과 comment를 받아서, 카드를 만들어주는 코드
+	// 자주쓰는 "JQuery들 다뤄보기 - 태그 내 HTML 입력하기"를 활용할 것!
+	 let temp_html = '<div class="card">\
+        <img class="card-img-top" src="https://www.fodors.com/wp-content/uploads/2018/10/4_UltimateRome_PiazzaNavona-975x650.jpg" alt="Card image cap">\
+        <div class="card-body">\
+          <a class="card-title" target="_blank" href="'+url+'">예를 들면 이렇게 카드가 나옵니다!!</a>\
+          <p class="card-text">여기에 기사 내용이 들어가겠죠</p>\
+          <p class="card-text comment">'+comment+'</p>\
+        </div>\
+      </div>\
+    </div>';
+
+    $('#cards-box').append(temp_html);
+
+}
+
+
+
+
+</script>
+
+
+</body>
+</html>
